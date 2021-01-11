@@ -1,0 +1,36 @@
+@use "spacing" as *;
+
+@mixin my-auto {
+	margin-top: auto;
+	margin-bottom: auto;
+}
+
+@mixin mx-auto {
+	margin-right: auto;
+	margin-left: auto;
+}
+
+@mixin mx($size) {
+	margin-right: spacing($size);
+	margin-left: spacing($size);
+}
+
+@mixin px($size) {
+	padding-right: spacing($size);
+	padding-left: spacing($size);
+}
+
+@mixin my($size) {
+	margin-top: spacing($size);
+	margin-bottom: spacing($size);
+}
+
+@mixin py($size) {
+	padding-top: spacing($size);
+	padding-bottom: spacing($size);
+}
+
+@mixin size($width, $height: $width) {
+	width: $width;
+	height: $height;
+}

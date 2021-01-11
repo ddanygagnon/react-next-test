@@ -1,0 +1,12 @@
+@use "sass:map";
+
+$_radius: 0.25em;
+$_radiuses: (
+	sm: $_radius / 2,
+	md: $_radius,
+	lg: $_radius * 2,
+);
+
+@function radius($rd: md) {
+	@return map.get($_radiuses, $rd);
+}

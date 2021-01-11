@@ -1,0 +1,7 @@
+@use "base";
+@use "vendor/hamburgers/hamburgers";
+@use "modules" as *;
+
+body {
+	background-color: color-contrast(lighter);
+}

@@ -1,0 +1,20 @@
+@use "../modules" as *;
+
+$font-family: system-ui, sans-serif;
+
+body {
+	color: color-contrast(darker);
+	font-family: $font-family;
+	font-size: $base-font-size;
+}
+
+mark {
+	background-image: linear-gradient(
+		transparent 50%,
+		color-primary(lighter) 50%
+	);
+}
+
+b {
+	font-weight: 500;
+}

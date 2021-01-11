@@ -1,0 +1,11 @@
+@mixin clip-path($name: "default", $offset: 50px) {
+	@if $name == "default" {
+		clip-path: polygon(0% 0%,100% $offset,100% 100%,0% calc(100% - #{$offset}));
+	}
+	@else if $name == "bottom" {
+		clip-path: polygon(0% 0%, 100% 0%, 100% calc(100% - #{$offset}), 0% 100%)
+	}
+	@else {
+		@error "Invalid clip-path name";
+	}
+}

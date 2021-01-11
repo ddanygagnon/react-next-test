@@ -1,0 +1,44 @@
+@use "sass:map";
+@use "mixins" as *;
+@use "spacing" as *;
+
+$_icon-sizes: (
+	xxxs: 8px,
+	xxs: 12px,
+	xs: 16px,
+	sm: 24px,
+	md: 32px,
+	lg: 48px,
+	xl: 64px,
+	xxl: 96px,
+	xxxl: 128px,
+);
+
+%icon-group {
+	display: flex;
+	> * {
+		margin-right: spacing(md);
+		&:last-child {
+			margin-right: 0;
+		}
+	}
+}
+
+@mixin icon-group($center: null) {
+	@if $center == "center" {
+		@extend %icon-group;
+
+		justify-content: center;
+	}
+	@extend %icon-group;
+}
+
+@mixin icon($size) {
+	@include size(icon-size($size));
+
+	line-height: 1;
+}
+
+@function icon-size($size) {
+	@return map.get($_icon-sizes, $size);
+}

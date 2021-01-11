@@ -1,0 +1,33 @@
+@use "sass:math";
+
+@use "breakpoints" as *;
+@use "../vendor/rfs" as * with (
+	$rfs-breakpoint: breakpoint(xl),
+	$rfs-breakpoint-unit: rem
+);
+
+$base-font-size: 1rem;
+$_base-ratio: 1.333;
+@function modular-scale($scale) {
+	@return math.pow($_base-ratio, $scale) * $base-font-size;
+}
+
+$_text-sizes: (
+	sm: modular-scale(-1),
+	md: modular-scale(1),
+	lg: modular-scale(2),
+	xl: modular-scale(3),
+	xxl: modular-scale(4),
+	xxxl: modular-scale(5),
+	xxxxl: modular-scale(8),
+);
+
+:root {
+	@each $name, $size in $_text-sizes {
+		@include rfs($size, --text-size--#{$name});
+	}
+}
+
+@function text-size($size) {
+	@return var(--text-size--#{$size});
+}

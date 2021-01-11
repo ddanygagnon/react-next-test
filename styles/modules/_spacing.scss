@@ -1,0 +1,20 @@
+@use "sass:map";
+
+$_space-unit: 1em;
+$_space: (
+	xxxxs: 0.125 * $_space-unit,
+	xxxs: 0.25 * $_space-unit,
+	xxs: 0.375 * $_space-unit,
+	xs: 0.5 * $_space-unit,
+	sm: 0.75 * $_space-unit,
+	md: 1.25 * $_space-unit,
+	lg: 2 * $_space-unit,
+	xl: 3.25 * $_space-unit,
+	xxl: 5.25 * $_space-unit,
+	xxxl: 8.5 * $_space-unit,
+	xxxxl: 13.75 * $_space-unit,
+);
+
+@function spacing($size: md) {
+	@return map.get($_space, $size);
+}

@@ -1,0 +1,65 @@
+@use "colors" as *;
+@use "text-size" as *;
+@use "spacing" as *;
+
+$text-vspace-multiplier: 1.2;
+$line-height-multiplier: 1;
+
+$heading-line-height: 1.4;
+$body-line-height: 1.58;
+
+%text-component {
+	h1 {
+		font-size: text-size(xxl);
+	}
+	h2 {
+		font-size: text-size(xl);
+	}
+	h3 {
+		font-size: text-size(lg);
+	}
+	h4 {
+		font-size: text-size(md);
+	}
+	small {
+		font-size: text-size(sm);
+	}
+	h1,
+	h2,
+	h3,
+	h4 {
+		margin-bottom: spacing(xxxs) * $text-vspace-multiplier;
+		font-weight: bold;
+		line-height: $heading-line-height * $line-height-multiplier;
+	}
+
+	h2,
+	h3,
+	h4 {
+		margin-top: spacing(sm) * $text-vspace-multiplier;
+	}
+
+	p,
+	blockquote,
+	ul li,
+	ol li {
+		line-height: $body-line-height * $line-height-multiplier;
+	}
+	p,
+	blockquote,
+	ul,
+	ol {
+		margin-bottom: spacing(sm) * $text-vspace-multiplier;
+	}
+	> *:first-child {
+		margin-top: 0;
+	}
+
+	> *:last-child {
+		margin-bottom: 0;
+	}
+}
+
+@mixin text-component {
+	@extend %text-component;
+}

@@ -1,0 +1,35 @@
+@use "sass:map";
+
+@function tint($color, $percentage) {
+	@return mix(white, $color, $percentage);
+}
+
+@function shade($color, $percentage) {
+	@return mix(black, $color, $percentage);
+}
+
+$_gray: #9e9e9e;
+$_red: #f27474;
+
+$_primary: (
+	lighter: tint($_red, 80%),
+	light: tint($_red, 50%),
+	medium: $_red,
+	dark: shade($_red, 50%)
+);
+
+$_contrast: (
+	lighter: tint($_gray, 93%),
+	light: tint($_gray, 50%),
+	medium: $_gray,
+	dark: shade($_gray, 50%),
+	darker: shade($_gray, 85%),
+);
+
+@function color-primary($name: medium) {
+	@return map.get($_primary, $name);
+}
+
+@function color-contrast($name) {
+	@return map.get($_contrast, $name);
+}

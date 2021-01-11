@@ -1,0 +1,8 @@
+@use "spacing" as *;
+@use "mixins" as *;
+
+@mixin container($size: md) {
+	@include mx-auto;
+
+	width: calc(100% - (2 * #{spacing($size)}));
+}
